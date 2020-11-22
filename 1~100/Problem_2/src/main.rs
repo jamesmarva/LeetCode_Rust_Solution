@@ -6,8 +6,8 @@ pub fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> 
     let mut current_1 = l1;
     let mut current_2 = l2;
     let mut tmp_sum = 0;
-    let mut head = ListNode::new(0);
-    let mut idx = &mut head;
+    let mut dummy = ListNode::new(0);
+    let mut idx = &mut dummy;
     while current_1.is_some() || current_2.is_some() {
         if current_1.is_some() {
             let tmp_node = *current_1.unwrap();
@@ -26,7 +26,7 @@ pub fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> 
     if tmp_sum > 0 {
         idx.next = Some(Box::new(ListNode::new(tmp_sum)));
     }
-    return head.next;
+    return dummy.next;
 }
 
 pub struct ListNode {
