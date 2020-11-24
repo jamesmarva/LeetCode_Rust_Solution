@@ -3,6 +3,10 @@
 1~100/Problem_3/target
 101~200/Problem_148/target
 
+101~200/Problem_143/target
+
+101~200/Problem_141/target
+
 *.lock
 .vscode/launch.json
 
