@@ -175,8 +175,22 @@ pub fn merge_two_Lists_2(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -
 
 pub fn merge_two_Lists_3(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     match (l1, l2) {
-        Some(i1), Some(i2) => {},
-        _ => {},
+        (Some(mut i1), Some(mut i2)) => {
+            if i1.val > i2.val {
+                i2.next = merge_two_Lists_3(Some(i1), i2.next);
+                return Some(i2)
+            } else {
+                (*i1).next = merge_two_Lists_3(i1.next, Some(i2));
+                return Some(i1)
+            }
+        },
+        (Some(i1), None) => {
+            return Some(i1)
+        },
+        (None, Some(i2)) => {
+            return Some(i2)
+        },
+        (None, None) => return None
     }
 }
 
