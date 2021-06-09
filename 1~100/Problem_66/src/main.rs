@@ -8,7 +8,10 @@ pub fn plus_one(digits: Vec<i32>) -> Vec<i32> {
     let (mut i, mut carry_one) = (digits.len() as i32 - 1 , false);
     let mut rst: Vec<i32> = digits.clone();
     while i >= 0 {
-        let mut tmp = digits[i as usize] + 1;
+        let mut tmp = digits[i as usize];
+        if i == digits.len() as i32  - 1 {
+            tmp += 1 ;
+        }
         if carry_one {
             tmp += 1;
         }
