@@ -1,3 +1,8 @@
+/// https://leetcode-cn.com/problems/sort-colors/
+/// 荷兰国旗问题
+/// 75. 颜色分类
+/// 其实三路快排的思想
+/// 
 fn main() {
     let mut v = vec![2, 2   ];
     sort_colors(&mut v);
