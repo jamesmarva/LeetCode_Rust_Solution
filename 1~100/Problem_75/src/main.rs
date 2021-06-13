@@ -9,9 +9,6 @@ fn main() {
     v.iter().for_each(|o| print!("{} ", o));
 }
 pub fn sort_colors(nums: &mut Vec<i32>) {
-    // if nums.len() <= 1{
-    //     return;
-    // }
     let mut l = 0;
     let mut r = nums.len() - 1;
     let mut i = 0;
