@@ -10,8 +10,8 @@ fn main() {
 }
 pub fn sort_colors(nums: &mut Vec<i32>) {
     let mut l = 0;
-    let mut r = nums.len() - 1;
     let mut i = 0;
+    let mut r = nums.len() - 1;
     while i <= r {
         if nums[i] == 1 {
             i += 1;
