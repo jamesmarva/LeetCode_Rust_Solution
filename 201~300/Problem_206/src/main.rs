@@ -1,3 +1,4 @@
+mod copy;
 fn main() {
     println!("Hello, world!");
 }
