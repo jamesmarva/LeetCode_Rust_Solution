@@ -5,8 +5,7 @@ use std::usize;
 /// 空间复杂度
 pub fn longest_palindrome(s: String) -> String {
     let arr: Vec<char> = s.chars().collect();
-    let mut start_idx = 0;
-    let mut max = 1;
+    let (mut start_idx, mut max) = (0, 1);
     for i in 0..arr.len() {
         let (start1, len1) = check(&arr, i, i);
         let (start2, len2) = check(&arr, i, i + 1);
@@ -23,8 +22,8 @@ pub fn longest_palindrome(s: String) -> String {
         }
     }
     arr.iter().enumerate()
-        .filter(|&(i, v)| i >= start_idx && i < start_idx + max)
-        .map(|(i, v)| v)
+        .filter(|&(i, _)| i >= start_idx && i < start_idx + max)
+        .map(|(_, v)| v)
         .collect()
 }
 
