@@ -1,12 +1,13 @@
 mod dp_solution;
 mod center;
+mod manacher;
 use std::iter::FromIterator;
 
 
 
 fn main() {
     let s = "bbbb".to_string();
-    let s0 = Solution::longest_palindrome0(s);
+    let s0 = manacher::longest_palindrome(s);
     println!("{}", s0);
 }
 
