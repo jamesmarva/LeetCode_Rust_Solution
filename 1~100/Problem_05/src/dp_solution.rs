@@ -17,24 +17,24 @@ pub fn longest_palindrome(s: String) -> String {
             if j >= count {
                 break;
             }
-            if arr[i] == arr[j] {
-                // 如果是3的话，那毫无疑问，相等就是回文，当然这里如果是3，应该是也没啥问题，就是重复了一次判断逻辑
+            dp[i][j] = if arr[i] == arr[j] {
+                // 如果是>= 3的话，那毫无疑问，相等就是回文，当然这里如果是3，应该是也没啥问题，就是重复了一次判断逻辑
                 if size >= 4 {
-                    dp[i][j] = dp[i + 1][j - 1];
+                    dp[i + 1][j - 1]
                 } else {
-                    dp[i][j] = true;
+                    true
                 }
             } else {
-                dp[i][j] = false;
-            }
+                false
+            };
             if dp[i][j] && size > max {
                 max = size;
                 start_idx = i;
             }
         }
     }
-    arr.iter().enumerate().filter(|&(i, v)| i >= start_idx && i < start_idx + max)
-        .map(|(i, v)| v)
+    arr.iter().enumerate().filter(|&(i, _v)| i >= start_idx && i < start_idx + max)
+        .map(|(_i, v)| v)
         .collect()
 }
 
@@ -47,31 +47,31 @@ pub fn longest_palindrome0(s: String) -> String {
     let mut start_idx = 0usize;
     let mut max = 1usize;
     let count = s.chars().count();
-    dp = (0..count).map(|x| { vec![false; count] }).collect();
+    dp = (0..count).map(|_| { vec![false; count] }).collect();
     for size in 2..=count {
         for i in 0..count {
             let j = size + i - 1;
             if j >= count {
                 break;
             }
-            if arr[i] == arr[j] {
+            dp[i][j] = if arr[i] == arr[j] {
                 // 如果是3的话，那毫无疑问，相等就是回文，当然这里如果是3，应该是也没啥问题，就是重复了一次判断逻辑
                 if size >= 4 {
-                    dp[i][j] = dp[i + 1][j - 1];
+                    dp[i + 1][j - 1]
                 } else {
-                    dp[i][j] = true;
+                    true
                 }
             } else {
-                dp[i][j] = false;
-            }
+                false
+            };
             if dp[i][j] && size > max {
                 max = size;
                 start_idx = i;
             }
         }
     }
-    arr.iter().enumerate().filter(|&(i, v)| i >= start_idx && i < start_idx + max)
-        .map(|(i, v)| v)
+    arr.iter().enumerate().filter(|&(i, _)| i >= start_idx && i < start_idx + max)
+        .map(|(_, v)| v)
         .collect()
 }
 

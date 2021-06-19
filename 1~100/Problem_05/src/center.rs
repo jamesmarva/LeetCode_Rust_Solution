@@ -27,15 +27,15 @@ pub fn longest_palindrome(s: String) -> String {
         .collect()
 }
 
-fn check(s: &Vec<char>, mut left_start: usize, mut right_start: usize) -> (usize, usize) {
-    while right_start < s.len() && s[left_start] == s[right_start] {
-        if left_start == 0 {
-            return (0, right_start + 1)
+fn check(s: &Vec<char>, mut lt: usize, mut rt: usize) -> (usize, usize) {
+    while rt < s.len() && s[lt] == s[rt] {
+        if lt == 0 {
+            return (0, rt + 1)
         }
-        left_start -= 1;
-        right_start += 1;
+        lt -= 1;
+        rt += 1;
     }
-    (left_start + 1, right_start - left_start - 1)
+    (lt + 1, rt - lt - 1)
 }
 
 
