@@ -21,3 +21,9 @@ pub fn preorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     }
     rst
 }
+
+pub fn preorder_traversal0(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+    let mut rst: Vec<i32> = Vec::new();
+    let mut stack: Vec<Rc<RefCell<TreeNode>>> = Vec::new();
+    let mut curr = root.unwrap();
+}
