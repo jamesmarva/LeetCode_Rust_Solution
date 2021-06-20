@@ -2,7 +2,8 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 use crate::TreeNode;
-
+/// use stack   
+/// 
 pub fn preorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     let mut rst: Vec<i32> = Vec::new();
     let mut stack: Vec<Rc<RefCell<TreeNode>>> = Vec::new();
