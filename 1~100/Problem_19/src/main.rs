@@ -9,21 +9,24 @@ fn main() {
     // println!("(&n0).next address: {:p}", &(&n0).next);
     // node.next = Some(Box::new(ListNode::new(1)));
     let n0_next = n0.next.as_ref().unwrap(); // 不论过程，只论类型的结果
-    println!("n0_next {}", n0_next.val);
+    println!("n0_next {} ", n0_next.val);
     // println!("n0_next address: {:p}", n0_next);
     // println!("*n0_next address: {:p}", *n0_next);
     // println!("&(**n0_next) address: {:p}", &(**n0_next));
 
     let n0_clone = n0.clone();
-    // println!("n0_clone address: {:p}", &n0_clone);
+    println!("n0_clone address: {:p}", &n0_clone);
     // println!("{:p}", &mut node);
     // println!("{:p}, next: {:p}", &node_clone, &node_clone.next);
     // println!("{:p}", &vec![1]);
     n0.next.as_mut().unwrap().val = 444;
-    println!("n0 next{} ", n0.next.as_ref().unwrap().val);
-    // println!("{}", n0_next.val);
-
-    println!("n0clone next: {}", n0_clone.next.as_ref().unwrap().val);
+    println!("n0 next val {} ", n0.next.as_ref().unwrap().val);
+    let n0_next = n0.next.as_ref().unwrap();
+    println!("n0_next.val {}", n0_next.val);
+    println!("n0_next {:p}", n0_next);
+    let n0_clone_next = &**n0_clone.next.as_ref().unwrap();
+    println!("n0_clone.next {:p}", n0_clone_next);
+    println!("n0 clone next: {} ", n0_clone_next.val);
 }
 
 
