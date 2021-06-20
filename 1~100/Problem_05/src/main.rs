@@ -4,9 +4,13 @@ mod manacher;
 use std::iter::FromIterator;
 
 
-
+/// "abbbbbbbbbbbbbbbbbbababa"
+/// "aaaa"
+///
 fn main() {
-    let s = "bbbb".to_string();
+    // let s = "bbbb".to_string();
+    let s= "babad".to_string();
+
     let s0 = manacher::longest_palindrome(s);
     println!("{}", s0);
 }
