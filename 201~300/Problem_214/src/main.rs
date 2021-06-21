@@ -1,9 +1,14 @@
+mod better;
+mod manacher;
 fn main() {
     let s = String::from("aacecaaa").chars().count();
-    println!("{}", s);
-    println!("{:?}", make_next(&String::from("aacecaaa").chars().collect()));
-    println!("{}", shortest_palindrome(String::from("aacecaaa")));
-    println!("{}", shortest_palindrome(String::from("abcd")));
+    // println!("{}", s);
+    // println!("{}", shortest_palindrome(String::from("aacecaaa")));
+    // println!("{}", shortest_palindrome(String::from("abcd")));
+    println!("{:?}", make_next(&String::from("abcdabcdabcd").chars().collect()));
+    println!("{:?}", make_next(&String::from("abababababab").chars().collect()));
+    println!("{:?}", make_next(&String::from("abcdabcdabc").chars().collect()));
+
 }
 
 /// use kmp solution
