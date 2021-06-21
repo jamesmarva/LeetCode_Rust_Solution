@@ -14,16 +14,9 @@ pub fn preorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
             stack.push(rc_val.clone());
             curr = rc_val.borrow().left.clone();
         }
-        curr = stack.pop();
-        if let Some(rc_val) = curr {
+        if let Some(rc_val) = stack.pop() {
             curr = rc_val.borrow().right.clone();
         }
     }
     rst
-}
-
-pub fn preorder_traversal0(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-    let mut rst: Vec<i32> = Vec::new();
-    let mut stack: Vec<Rc<RefCell<TreeNode>>> = Vec::new();
-    let mut curr = root.unwrap();
 }
