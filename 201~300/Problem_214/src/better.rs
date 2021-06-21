@@ -77,6 +77,7 @@ mod tests {
     use super::*;
 
     #[test]
+    #[ignore]
     fn work1() {
         let s = "aacecaaa".to_string();
         // assert_eq!(vec![0isize; 0], get_next(&s.chars().collect()));
@@ -85,6 +86,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore]
     fn work2() {
         let s = "abcdabcd".to_string();
         // assert_eq!(vec![0isize; 0], get_next(&s.chars().collect()));
@@ -93,6 +95,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore]
     fn work3() {
         let s = "aaaa".to_string();
         // assert_eq!(vec![0isize; 0], get_next(&s.chars().collect()));
@@ -101,6 +104,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore]
     fn work4() {
         let s = "aacecaaa".to_string();
         assert_eq!("aaacecaaa", shortest_palindrome(s));
