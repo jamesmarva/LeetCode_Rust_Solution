@@ -47,8 +47,6 @@ pub fn get_palindrome_len(s: &Vec<char>, mut lt: usize, mut rt: usize) -> usize 
     rt - lt - 1
 }
 
-
-
 #[cfg(test)]
 mod tests {
 
