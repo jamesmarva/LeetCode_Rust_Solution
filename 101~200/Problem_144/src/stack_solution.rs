@@ -32,7 +32,7 @@ pub fn preorder_traversal0(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     while stack.len() > 0 || curr.is_some() {
         while let Some(n) = curr {
             rst.push(n.borrow().val); 
-            curr = n.borrow_mut().left.take();
+            curr = n.borrow_mut().left.take();// &mut Option -> Option<T>
             stack.push(n);
         }
         if let Some(n) = stack.pop() {
