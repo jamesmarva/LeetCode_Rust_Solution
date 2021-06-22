@@ -4,10 +4,30 @@ fn main() {
 }
 use std::rc::Rc;
 use std::cell::RefCell;
+
+pub fn postorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+    let mut rst = Vec::new();
+    postorder(root, &mut rst);
+    rst
+    
+}
+
+
 pub fn inorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     let mut rst = Vec::new();
     inorder(root, &mut rst);
     rst
+}
+
+pub fn postorder(node: Option<Rc<RefCell<TreeNode>>>, rst: &mut Vec<i32>) {
+    if node.is_none() {
+        return;
+    }
+    if let Some(v) = node {
+        postorder(v.borrow_mut().left.take(), rst);
+        postorder(v.borrow_mut().right.take(), rst);
+        rst.push(v.borrow().val);
+    }
 }
 
 fn inorder(node: Option<Rc<RefCell<TreeNode>>>, rst: &mut Vec<i32>) {
