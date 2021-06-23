@@ -6,15 +6,7 @@ fn main() {
 use std::{cell::Ref, rc::Rc};
 use std::cell::RefCell;
 pub fn insert_into_bst(mut root: Option<Rc<RefCell<TreeNode>>>, val: i32) -> Option<Rc<RefCell<TreeNode>>> {
-    let mut prev_val = root.as_ref().unwrap().borrow().val;
-    let mut curr = &mut root;
-    while let Some(v) = curr {
-        if v.borrow().val < val {
-            curr = &mut v.get_mut().right;
-        } else {
-            curr = &mut v.borrow_mut().right;
-        }
-    }
+   
     root
 }
 
@@ -24,11 +16,17 @@ pub fn insert_into_bst0(mut root: Option<Rc<RefCell<TreeNode>>>, val: i32) -> Op
     let mut curr = &root;
     while let Some(node) = curr {
         let mut n = node.borrow_mut();
-        let next = if val > n.val {
+        let target = if val > n.val {
             &mut n.right
         } else {
             &mut n.left
         };
+        if target.is_some() {
+            curr = target;
+            continue;
+        } 
+        *target = Some(Rc::new(RefCell::new(TreeNode::new(val))));
+        break;
     }
     root
 }
