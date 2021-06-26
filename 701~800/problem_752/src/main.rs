@@ -1,8 +1,9 @@
 use std::{collections::{HashSet, VecDeque}, iter::FromIterator, usize};
 
 mod both_ends;
+mod both_ends_better;
 fn main() {
-    println!("Hello, world!");
+
 }
 
 pub fn open_lock(deadends: Vec<String>, target: String) -> i32 {
@@ -58,7 +59,7 @@ pub fn change_str(s: String, i: usize, add: bool) -> String {
                 v -= 1;
             }
         }
-        cs[i] = v.to_string().chars().next().unwrap();
+        cs[i] = (v as u8 + b'0') as char;
     }
     cs.iter().collect()
 }
