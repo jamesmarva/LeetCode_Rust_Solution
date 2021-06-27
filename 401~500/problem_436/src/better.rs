@@ -1,19 +1,6 @@
-mod better;
 
-fn main() {
-    println!("Hello, world!");
-}
-
-///
-/// [[1,2]]
-/// [[1,1],[3,4]]
-/// [[3,4],[2,3],[1,2]]
-/// [[1,4],[2,3],[3,4]]
 pub fn find_right_interval(intervals: Vec<Vec<i32>>) -> Vec<i32> {
-    let mut tmp: Vec<(i32, usize)> = Vec::new();
-    for (i, interval) in intervals.iter().enumerate() {
-        tmp.push((interval[0], i));
-    }
+    let mut tmp: Vec<(i32, usize)> = intervals.iter().enumerate().map(|(idx, interval)| (interval[0], idx)).collect();
     tmp.sort_by_key(|&(val, _)| val);
 
     let mut rst = vec![-1; intervals.len()];
@@ -36,5 +23,3 @@ pub fn find_right_interval(intervals: Vec<Vec<i32>>) -> Vec<i32> {
     }
     rst
 }
-
-
