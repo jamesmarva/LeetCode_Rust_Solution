@@ -1,9 +1,11 @@
 use core::num;
 
 fn main() {
-    println!("Hello, world!");
-}
+    let mut v = vec![1,12,12,12,12,121234,124,1234,124,12,34,2134,1234,1234,51,5,2345,23,45,2345,23];
+    v.sort();
+    v.binary_search(&1234);
 
+}
 
 /// https://leetcode-cn.com/problems/binary-search/
 /// 704. 二分查找
