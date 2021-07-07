@@ -1,15 +1,18 @@
+mod obj_solution;
+
 use std::{collections::HashMap, usize};
+
 
 /// K4(ON(SO3)2)2
 /// H2O
 /// Mg(OH)2
 
 fn main() {
-    println!("{}", is_digit(&'a'));
-    println!("{}", is_digit(&'2'));
+    // println!("{}", is_digit(&'a'));
+    // println!("{}", is_digit(&'2'));
 
     let s = String::from("K4(ON(SO3)2)2");
-    println!("{}", count_of_atoms(s));
+    println!("{}", obj_solution::count_of_atoms(s));
 }
 /// https://leetcode-cn.com/problems/number-of-atoms/
 /// 726. 原子的数量
@@ -64,10 +67,8 @@ pub fn count_of_atoms(formula: String) -> String {
                             move_idx -= 1;
                         }
                         count = String::new();
-                    } else {
-                        
-                        count_stack.push(count_num);
-                        
+                    } else {  
+                        count_stack.push(count_num); 
                     }
                 }
             }
@@ -103,6 +104,6 @@ pub fn count_of_atoms(formula: String) -> String {
     rst
 }
 
-fn is_digit(c: &char) -> bool{
+pub fn is_digit(c: &char) -> bool{
     *c >= '0' && *c <= '9'
 }
