@@ -4,7 +4,7 @@ pub fn h_index(citations: Vec<i32>) -> i32 {
     let mut lt = 0;
     while lt <= rt {
         let mid = lt + ((rt - lt) >> 1);
-        let tmp = (l - mid) as i32;
+        let tmp = (l - mid) as i32; 
         println!("mid: {}; tmp: {}", mid, tmp);
         if citations[mid] >= tmp && (mid == 0 || citations[mid - 1] < tmp + 1) {
             return tmp;
