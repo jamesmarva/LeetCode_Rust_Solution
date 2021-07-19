@@ -1,5 +1,7 @@
 mod better_code;
 mod sort_solution;
+mod good_code;
+
 use core::str;
 
 fn main() {
