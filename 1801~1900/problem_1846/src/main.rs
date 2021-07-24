@@ -1,5 +1,8 @@
 fn main() {
-    println!("Hello, world!");
+    let arr = ["hello", "world"];
+    for s in arr.iter() {
+        println!("{}", &s);
+    }
 }
 
 /// https://leetcode-cn.com/problems/maximum-element-after-decreasing-and-rearranging/
