@@ -1,3 +1,4 @@
+mod lock_demo;
 fn main() {
 
     let vec = Vec::from("1");
