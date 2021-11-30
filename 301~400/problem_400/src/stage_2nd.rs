@@ -21,14 +21,15 @@ pub fn find_nth_digit(n: i32) -> i32 {
     let mut th_max_i = 1;
     for i in 0..max_digit {
         if n > *digits_num.get(&i).unwrap() && n <= *digits_num.get(&(i + 1)).unwrap() {
-            th_max_i = i + 1;
+            th_max_i = i;
             break;
         } 
     }
-    let pre_max = digits_num.get(&(th_max_i - 1)).unwrap();
-    let dis = n - pre_max;
-    let begin = 10u32.pow(th_max_i);
-    
+    let pre_max = digits_num.get(&(th_max_i)).unwrap();
+    let dis = n - pre_max - 1;
+    let begin = (10u32.pow(th_max_i) + dis as u32 / (th_max_i + 1)).to_string();
+    let digit_th = dis as u32 % (th_max_i + 1);
+    begin.chars().nth(digit_th as usize).unwrap().to_digit(10).unwrap() as i32
 }
 
 #[cfg(test)]
