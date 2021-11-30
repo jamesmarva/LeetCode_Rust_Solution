@@ -8,7 +8,6 @@ pub fn find_nth_digit(n: i32) -> i32 {
     for i in 1..9 {
         let pre_tmp = digits_num.get(&(i - 1)).unwrap();
         let cur_val = i as i32 * 9 * 10i32.pow(i - 1);
-        println!("cur_val: {}", cur_val);
         if max_i32 - cur_val < *pre_tmp {
             max_digit = i;
             break;
@@ -27,10 +26,9 @@ pub fn find_nth_digit(n: i32) -> i32 {
         } 
     }
     let pre_max = digits_num.get(&(th_max_i - 1)).unwrap();
-    let new_num = (n - pre_max) as u32;
-    let the_num = (new_num / th_max_i + *pre_max as u32).to_string();
-    let digit_th = new_num % th_max_i;
-    the_num.chars().nth(digit_th as usize).unwrap().to_digit(10).unwrap() as i32
+    let dis = n - pre_max;
+    let begin = 10u32.pow(th_max_i);
+    
 }
 
 #[cfg(test)]
@@ -40,7 +38,7 @@ mod tests {
     #[test]
     fn t1() {
         // println!("{}", i32::MAX);
-        println!("{}", find_nth_digit(10));
+        println!("d {}", find_nth_digit(11));
     }
 
 }
