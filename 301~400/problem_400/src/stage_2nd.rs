@@ -39,7 +39,7 @@ mod tests {
     #[test]
     fn t1() {
         // println!("{}", i32::MAX);
-        println!("d {}", find_nth_digit(11));
+        println!("d {}", find_nth_digit(222));
     }
 
 }
