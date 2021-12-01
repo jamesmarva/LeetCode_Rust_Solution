@@ -1,5 +1,6 @@
 use std::collections::HashMap;
-use std::i32::MAX as max_i32;
+use std::i32::{MAX as max_i32};
+
 
 pub fn find_nth_digit(n: i32) -> i32 {
     let mut digits_num = HashMap::new();
@@ -12,6 +13,7 @@ pub fn find_nth_digit(n: i32) -> i32 {
             max_digit = i;
             break;
         }
+        println!("{}", cur_val + pre_tmp);
         digits_num.insert(i, cur_val + pre_tmp);
     }
     if *digits_num.get(&max_digit).unwrap() != max_i32 {
@@ -25,11 +27,11 @@ pub fn find_nth_digit(n: i32) -> i32 {
             break;
         } 
     }
-    let pre_max = digits_num.get(&(th_max_i)).unwrap();
-    let new_num = (n - pre_max) as u32;
-    let the_num = (new_num / th_max_i + *pre_max as u32).to_string();
-    let digit_th = new_num % th_max_i;
-    the_num.chars().nth(digit_th as usize).unwrap().to_digit(10).unwrap() as i32
+    let after = n - *digits_num.get(&th_max_i).unwrap() - 1;
+    let begin = 10i32.pow(th_max_i);
+    let add_num = after / (th_max_i as i32 + 1);
+    let place_th = after % (th_max_i as i32 + 1);
+    (begin + add_num).to_string().chars().nth(place_th as usize).unwrap().to_digit(10).unwrap();
 }
 
 #[cfg(test)]
