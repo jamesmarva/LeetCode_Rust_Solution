@@ -26,10 +26,10 @@ pub fn find_nth_digit(n: i32) -> i32 {
         } 
     }
     let pre_max = digits_num.get(&(th_max_i)).unwrap();
-    let dis = n - pre_max - 1;
-    let begin = (10u32.pow(th_max_i) + dis as u32 / (th_max_i + 1)).to_string();
-    let digit_th = dis as u32 % (th_max_i + 1);
-    begin.chars().nth(digit_th as usize).unwrap().to_digit(10).unwrap() as i32
+    let new_num = (n - pre_max) as u32;
+    let the_num = (new_num / th_max_i + *pre_max as u32).to_string();
+    let digit_th = new_num % th_max_i;
+    the_num.chars().nth(digit_th as usize).unwrap().to_digit(10).unwrap() as i32
 }
 
 #[cfg(test)]
