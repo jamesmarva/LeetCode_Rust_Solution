@@ -22,11 +22,11 @@ pub fn find_nth_digit(n: i32) -> i32 {
     let mut th_max_i = 1;
     for i in 0..max_digit {
         if n > *digits_num.get(&i).unwrap() && n <= *digits_num.get(&(i + 1)).unwrap() {
-            th_max_i = i + 1;
+            th_max_i = i;
             break;
         } 
     }
-    let pre_max = digits_num.get(&(th_max_i - 1)).unwrap();
+    let pre_max = digits_num.get(&(th_max_i)).unwrap();
     let new_num = (n - pre_max) as u32;
     let the_num = (new_num / th_max_i + *pre_max as u32).to_string();
     let digit_th = new_num % th_max_i;
